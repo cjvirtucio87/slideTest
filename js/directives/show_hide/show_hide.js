@@ -22,7 +22,7 @@ app.directive('showHide', ['$', function ($) {
       scope.compareWithCurrentState = function (slide) {
         var section = $(el);
         if(slide !== section.attr('data-slide')){
-          section.hide();
+          section.addClass('animate-leave').hide();
         } else {
           section.show();
         }
