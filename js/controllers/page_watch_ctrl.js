@@ -12,22 +12,20 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
 
   $scope.nextState = function (slideTo) {
     if(slideTo){
-      console.log('in slieeTo')
+      console.log('in slieeTo');
       $scope.count = slideTo;
     } else {
       $scope.count = ($scope.count + 1) % $scope.states.length;
     }
-    console.log("lkokj")
-    console.log($scope.states[$scope.count]);
     $scope.$broadcast('states.nextState', $scope.states, $scope.count);
   };
 
   // Clicking 'make a new slide' on a section/header/footer
   // should take it out of the main page and give it its own slide.
   $scope.createSlide = function($event){
-    var slideTag = $($event.target).first().closest('section');
+    var slideTag = $($event.currentTarget).closest('section');
     if (!slideTag.length){
-      slideTag = $($event.currentTarget).first().closest('header');
+      slideTag = $($event.currentTarget).closest('header');
     }
 
     slideTag.attr('data-slide', $scope.states.length);

@@ -18,16 +18,16 @@ app.directive('showHide', ['$', function ($) {
       };
 
       scope.compareWithCurrentState = function (states, count) {
-        console.log("in the directive");
         // console.log();
         var section = $(el);
-        if(scope.currentState !== section.attr('data-slide')){
+        if(scope.currentState != section.attr('data-slide')){
+          console.log(section);
           section.hide();
         } else {
           section.show();
         }
         console.log([states[count], section.attr('data-slide')]);
-        console.log(states);
+        // console.log(states);
         scope.checkLessThanTwo(states, count);
       };
 
