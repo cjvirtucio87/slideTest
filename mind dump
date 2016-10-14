@@ -1,0 +1,24 @@
+Load the page with section/header identifiers
+
+Then add buttons where those are (do this before we send it down)
+
+We choose a selection
+
+$scope.states = [0, 1, 2, 3]
+
+when adding new state, add attr of data-stated="1"
+var section = $(el)
+if (scope.currentState === 'home'){
+  if (section.attr('data-stated')) {
+    section.hide();
+  } else {
+    section.show();
+  }
+} else {
+  if (scope.currentState !== $(el).attr['data-id']){
+    section.hide();
+  } else {
+    section.show();
+  }
+
+}
