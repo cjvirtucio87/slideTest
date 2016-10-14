@@ -1,3 +1,11 @@
+.edit-slide-btn {
+  z-index: 10000;
+}
+
+.checkbox-slide {
+  z-index: 10000;
+}
+
 .next-state-btn {
   position: absolute;
   top: 50%;

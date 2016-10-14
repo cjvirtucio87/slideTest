@@ -1,4 +1,5 @@
-app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
+app.controller('pageWatchCtrl',
+['$scope', '$', 'NodeService', function($scope, $, NodeService){
   var elements = $('body *');
 
   for (var i =1; i < ( 1 + elements.length ); i++){
@@ -12,7 +13,6 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
 
   $scope.nextState = function (slideTo) {
     if(slideTo){
-      console.log('in slieeTo');
       $scope.count = slideTo;
     } else {
       $scope.count = ($scope.count + 1) % $scope.states.length;
@@ -40,6 +40,12 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
       $scope.count = ($scope.count + 1) % $scope.states.length;
     }
     $scope.$broadcast('states.nextState', $scope.states[$scope.count] );
+  };
+
+  $scope.nodeForm = {};
+
+  $scope.saveNodes = function () {
+    NodeService.saveNodeForm($scope.nodeForm);
   };
 
 }]);
