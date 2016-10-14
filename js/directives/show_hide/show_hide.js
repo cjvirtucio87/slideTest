@@ -10,11 +10,7 @@ app.directive('showHide', ['$', function ($) {
         // Check if there are less than two slides left.
         // Then hide/show button.
         var slides = $("[data-slide='" + states[count] + "']");
-        // console.log(slides);
         if (slides.length < 2) {
-          // console.log(slides.length);
-          // console.log(slides.children('button.next-state-btn'));
-          console.log(slides.find('button.create-slide'));
           slides.find('button.create-slide').first().hide();
         } else {
           slides.find('button.create-slide').first().show();
@@ -22,13 +18,16 @@ app.directive('showHide', ['$', function ($) {
       };
 
       scope.compareWithCurrentState = function (states, count) {
+        console.log("in the directive");
+        // console.log();
         var section = $(el);
         if(scope.currentState !== section.attr('data-slide')){
           section.hide();
         } else {
           section.show();
         }
-
+        console.log([states[count], section.attr('data-slide')]);
+        console.log(states);
         scope.checkLessThanTwo(states, count);
       };
 

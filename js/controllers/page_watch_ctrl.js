@@ -10,10 +10,22 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
 
   $scope.count = 0;
 
+  $scope.nextState = function (slideTo) {
+    if(slideTo){
+      console.log('in slieeTo')
+      $scope.count = slideTo;
+    } else {
+      $scope.count = ($scope.count + 1) % $scope.states.length;
+    }
+    console.log("lkokj")
+    console.log($scope.states[$scope.count]);
+    $scope.$broadcast('states.nextState', $scope.states, $scope.count);
+  };
+
   // Clicking 'make a new slide' on a section/header/footer
   // should take it out of the main page and give it its own slide.
   $scope.createSlide = function($event){
-    var slideTag = $($event.currentTarget).first().closest('section');
+    var slideTag = $($event.target).first().closest('section');
     if (!slideTag.length){
       slideTag = $($event.currentTarget).first().closest('header');
     }
@@ -21,14 +33,11 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
     slideTag.attr('data-slide', $scope.states.length);
     $scope.states.push(slideTag.attr('data-slide'));
     // Changing counter so we can 'redirect' to end of states array.
-    $scope.count = $scope.states.length - 1;
+    // $scope.nextState( $scope.states.length-1 );
     // Current state being passed in is the same. It doesn't see a new state until you click on the directive.
   };
 
-  $scope.nextState = function () {
-    $scope.count = ($scope.count + 1) % $scope.states.length;
-    $scope.$broadcast('states.nextState', $scope.states, $scope.count);
-  };
+
 
 
 }]);
