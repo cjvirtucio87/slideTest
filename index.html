@@ -26,6 +26,7 @@
 
     <!-- Theme CSS -->
     <link href="css/new-age.min.css" rel="stylesheet">
+    <link href="css/anglify.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -71,7 +72,7 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header show-hide current-state='currentState'>
+    <header show-hide current-state='states[count]'>
       <h1> This is supposed to be showing!!! </h1>
       <a ng-click='createSlide($event)'>Make New Slide</a>
         <div class="container">
@@ -103,7 +104,7 @@
         </div>
     </header>
 
-    <section show-hide current-state='currentState' id="download" class="download bg-primary text-center">
+    <section show-hide current-state='states[count]' id="download" class="download bg-primary text-center">
       <button>Make New Slide</button>
         <div class="container">
             <div class="row">
@@ -119,7 +120,7 @@
         </div>
     </section>
 
-    <section show-hide current-state='currentState' id="features" class="features">
+    <section show-hide current-state='states[count]' id="features" class="features">
       <a ng-click="createSlide($event)">Make New Slide</a>
         <div class="container">
             <div class="row">
@@ -185,7 +186,7 @@
             </div>
     </section>
 
-    <section show-hide current-state='currentState' class="cta">
+    <section show-hide current-state='states[count]' class="cta">
       <button>Make New Slide</button>
         <div class="cta-content">
             <div class="container">
@@ -196,7 +197,7 @@
         <div class="overlay"></div>
     </section>
 
-    <section show-hide current-state='currentState' id="contact" class="contact bg-primary">
+    <section show-hide current-state='states[count]' id="contact" class="contact bg-primary">
       <button>Make New Slide</button>
         <div class="container">
             <h2>We <i class="fa fa-heart"></i> new friends!</h2>

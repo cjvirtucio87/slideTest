@@ -15,16 +15,17 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
 
   $scope.states = [0];
 
-  $scope.currentState = 1;
-  $scope.currentStateCounter = 1;
+  $scope.count = 0;
+
 
   $scope.createSlide = function($event){
     var slideTag = $($event.currentTarget).first().parent();
+    console.log(slideTag);
     $scope.states.push(slideTag.attr('data-id'));
   };
 
   $scope.nextState = function () {
-
+    $scope.count = ($scope.count + 1) % $scope.states.length;
   };
 
 }]);
