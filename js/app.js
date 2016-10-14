@@ -7,9 +7,11 @@ app.factory('$', ['$window', function($window){
 
 app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
   var elements = $('body *');
+
   for (var i =1; i < ( 1 + elements.length ); i++){
     $(elements[i]).attr('data-id', i);
   }
+  // compare element's id with currentstate; if match { show }
 
   $scope.states = [0];
 

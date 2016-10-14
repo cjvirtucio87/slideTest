@@ -1,21 +1,24 @@
 app.directive('showHide', function () {
 
-  var showHide = {};
-  var _scope = {};
+  return {
+    restrict: 'A',
+    scope: {
+      currentState: '='
+    },
+    link: function _showHideLink (scope, el, attr, controller) {
+      var slideTag = el.parent();
 
-  function _showHideLink (scope, el, attr) {
-    console.log(attr);
-    scope.flag = true;
-    scope.toggle = function () {
-      scope.flag = !scope.flag;
-    };
-  }
+      console.log(scope.currentState);
 
+      scope.compareWithCurrentState = function () {
 
-  showHide.restrict = 'A';
-  showHide.scope = _scope;
-  showHide.link = _showHideLink;
+      };
 
-  return showHide;
+      scope.flag = true;
+      scope.toggle = function () {
+        scope.flag = !scope.flag;
+      };
+    }
+  };
 
 });
