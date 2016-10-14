@@ -25,6 +25,7 @@ app.directive('showHide', ['$', function ($) {
 
       scope.compareWithCurrentState = function () {
         var section = $(el);
+        console.log($(el).attr('data-id'));
         if (scope.currentState === 'home') {
           if (section.attr('data-stated')) {
             section.hide();

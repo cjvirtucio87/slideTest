@@ -17,6 +17,8 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
 
   $scope.count = 0;
 
+  // Clicking 'make a new slide' on a section/header/footer
+  // should take it out of the main page and give it its own slide.
   $scope.createSlide = function($event){
     var slideTag = $($event.currentTarget).first().parent();
     slideTag.attr('data-stated', 1);
