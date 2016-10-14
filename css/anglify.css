@@ -4,3 +4,7 @@
   right: 0%;
   z-index: 10000;
 }
+
+body {
+  position: relative;
+}

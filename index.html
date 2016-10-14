@@ -40,9 +40,7 @@
 </head>
 
 <body id="page-top" ng-controller="pageWatchCtrl">
-
-    <button class='next-state-btn' ng-click='nextState()'>Next State</button>
-
+  <button class='next-state-btn' ng-click='nextState()'>Next State</button>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -74,7 +72,7 @@
 
     <header show-hide current-state='states[count]'>
       <h1> This is supposed to be showing!!! </h1>
-      <a ng-click='createSlide($event)'>Make New Slide</a>
+      <button ng-click='createSlide($event)'>Make New Slide</button>
         <div class="container">
             <div class="row">
                 <div class="col-sm-7">
@@ -105,7 +103,7 @@
     </header>
 
     <section show-hide current-state='states[count]' id="download" class="download bg-primary text-center">
-      <button>Make New Slide</button>
+      <button ng-click='createSlide($event)'>Make New Slide</button>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -121,7 +119,7 @@
     </section>
 
     <section show-hide current-state='states[count]' id="features" class="features">
-      <a ng-click="createSlide($event)">Make New Slide</a>
+      <button ng-click='createSlide($event)'>Make New Slide</button>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -187,7 +185,7 @@
     </section>
 
     <section show-hide current-state='states[count]' class="cta">
-      <button>Make New Slide</button>
+      <button ng-click='createSlide($event)'>Make New Slide</button>
         <div class="cta-content">
             <div class="container">
                 <h2>Stop waiting.<br>Start building.</h2>
@@ -198,7 +196,7 @@
     </section>
 
     <section show-hide current-state='states[count]' id="contact" class="contact bg-primary">
-      <button>Make New Slide</button>
+      <button ng-click='createSlide($event)'>Make New Slide</button>
         <div class="container">
             <h2>We <i class="fa fa-heart"></i> new friends!</h2>
             <ul class="list-inline list-social">
