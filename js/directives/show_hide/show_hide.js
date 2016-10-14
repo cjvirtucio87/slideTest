@@ -20,12 +20,14 @@ app.directive('showHide', ['$', function ($) {
       };
 
       scope.compareWithCurrentState = function (slide) {
-        var section = $(el);
-        if(slide !== section.attr('data-slide')){
-          section.addClass('animate-leave').hide();
+        if(slide !== el.attr('data-slide')){
+          el.removeClass('ng-hide-remove').show();
+          el.addClass('ng-hide-add').hide();
         } else {
-          section.show();
+          el.removeClass('ng-hide-add').hide();
+          el.addClass('ng-hide-remove').show();
         }
+
         scope.checkLessThanTwo(slide);
       };
 
