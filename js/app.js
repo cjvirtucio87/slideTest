@@ -16,9 +16,15 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
   $scope.states = [0];
 
   $scope.currentState = 1;
+  $scope.currentStateCounter = 1;
+
   $scope.createSlide = function($event){
     var slideTag = $($event.currentTarget).first().parent();
     $scope.states.push(slideTag.attr('data-id'));
+  };
+
+  $scope.nextState = function () {
+
   };
 
 }]);
