@@ -10,7 +10,6 @@ app.directive('showHide', ['$', function ($) {
         // Check if there are less than two slides left.
         // Then hide/show button.
         var slides = $("[data-slide='" + slide + "']");
-        // console.log(slides);
         if (slides.length < 2) {
           // console.log(slides.length);
           // console.log(slides.children('button.next-state-btn'));
