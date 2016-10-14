@@ -26,18 +26,24 @@ app.directive('showHide', ['$', function ($) {
       scope.compareWithCurrentState = function () {
         var section = $(el);
         console.log($(el).attr('data-id'));
-        if (scope.currentState === 'home') {
-          if (section.attr('data-stated')) {
-            section.hide();
-          } else {
-            section.show();
-          }
+        // if (scope.currentState === 'home') {
+        //   if (section.attr('data-stated')) {
+        //     section.hide();
+        //   } else {
+        //     section.show();
+        //   }
+        // } else {
+        //   if (scope.currentState !== $(el).attr('data-id')) {
+        //     $(el).hide();
+        //   } else {
+        //     $(el).show();
+        //   }
+        // }
+        var section = $(el);
+        if(scope.currentState !== section.attr('data-slide')){
+          section.hide();
         } else {
-          if (scope.currentState !== $(el).attr('data-id')) {
-            $(el).hide();
-          } else {
-            $(el).show();
-          }
+          section.show();
         }
       };
 

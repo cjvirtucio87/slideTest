@@ -40,7 +40,6 @@
 </head>
 
 <body id="page-top" ng-controller="pageWatchCtrl">
-  <button class='next-state-btn' ng-click='nextState()'>Next State</button>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -70,7 +69,9 @@
         <!-- /.container-fluid -->
     </nav>
 
-    <header show-hide current-state='states[count]'>
+    <button class='next-state-btn' ng-click='nextState()'>Next State</button>
+
+    <header show-hide current-state='states[count]' data-slide="home">
         <div class="container">
             <div class="row">
                 <div class="col-sm-7">
@@ -101,7 +102,7 @@
         </div>
     </header>
 
-    <section show-hide current-state='states[count]' id="download" class="download bg-primary text-center">
+    <section show-hide current-state='states[count]' id="download" class="download bg-primary text-center" data-slide="home">
       <button ng-click='createSlide($event)'>Make New Slide</button>
         <div class="container">
             <div class="row">
@@ -117,7 +118,7 @@
         </div>
     </section>
 
-    <section show-hide current-state='states[count]' id="features" class="features">
+    <section show-hide current-state='states[count]' id="features" class="features" data-slide="home">
       <button ng-click='createSlide($event)'>Make New Slide</button>
         <div class="container">
             <div class="row">
@@ -183,7 +184,7 @@
             </div>
     </section>
 
-    <section show-hide current-state='states[count]' class="cta">
+    <section show-hide current-state='states[count]' class="cta" data-slide="home">
         <div class="cta-content">
             <div class="container">
                 <!-- Bugged. Can't create a new slide for this section. -->
@@ -195,7 +196,7 @@
         <div class="overlay"></div>
     </section>
 
-    <section show-hide current-state='states[count]' id="contact" class="contact bg-primary">
+    <section show-hide current-state='states[count]' id="contact" class="contact bg-primary" data-slide="home">
       <button ng-click='createSlide($event)'>Make New Slide</button>
         <div class="container">
             <h2>We <i class="fa fa-heart"></i> new friends!</h2>
