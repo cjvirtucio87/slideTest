@@ -1,22 +1,23 @@
-app.directive('toCheckbox', [function() {
+app.directive('toCheckbox', ['NodeService', function(NodeService) {
   return {
     restrict: 'E',
     templateUrl: 'js/directives/to_checkbox/to_checkbox.html',
-    scope: {
-      dataSlideId: '=',
-      nodeForm: '='
-    },
+    // scope: {
+    //   dataSlideId: '=',
+    //   nodeForm: '='
+    // },
     link: function (scope, element) {
-      scope.checkBoxState = true;
-      scope.toggleCB = function () {
-        scope.checkBoxState = !scope.checkBoxState;
-      };
+      scope.nodeForm = {};
+
+      NodeService.sendNode(slideTag);
+
+
       scope.getDataId = function () {
         var slideTag = element.closest('section');
         if (!slideTag.length) {
           slideTag = element.closest('header');
         }
-        return slideTag.attr('data-id');
+        return slideTag;
       };
 
       scope.getDataId();

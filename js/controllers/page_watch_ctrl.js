@@ -42,17 +42,19 @@ app.controller('pageWatchCtrl',
     $scope.$broadcast('states.nextState', $scope.states[$scope.count] );
   };
 
-  $scope.nodeForm = {};
+  $scope.checkBoxState = true;
+  $scope.toggleCB = function () {
+    scope.checkBoxState = !scope.checkBoxState;
+  };
 
-  $scope.saveNodes = function () {
-    NodeService.saveNodeForm($scope.nodeForm);
+  scope.saveNodes = function () {
   };
 
   // Using the node ids in the service to get the nodes from the DOM
   $scope.getNodes = function () {
-    return (_.map(NodeService.getNodeIds(), function(id) {
+    console.log((_.map(NodeService.getNodeIds(), function(id) {
       return $("*[data-id='" + id + "']").first();
-    }));
+    })));
   };
 
 }]);
