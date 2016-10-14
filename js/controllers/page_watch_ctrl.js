@@ -30,12 +30,16 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
 
     slideTag.attr('data-slide', $scope.states.length);
     $scope.states.push(slideTag.attr('data-slide'));
-    // Changing counter so we can 'redirect' to end of states array.
-    // $scope.nextState( $scope.states.length-1 );
-    // Current state being passed in is the same. It doesn't see a new state until you click on the directive.
+    $scope.nextState($scope.states.length);
   };
 
-
-
+  $scope.nextState = function(jump) {
+    if (jump){
+      $scope.count = jump - 1;
+    } else {
+      $scope.count = ($scope.count + 1) % $scope.states.length;
+    }
+    $scope.$broadcast('states.nextState', $scope.states[$scope.count] );
+  };
 
 }]);
