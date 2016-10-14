@@ -8,9 +8,8 @@ app.directive('showHide', ['$', function ($) {
     link: function _showHideLink (scope, el, attr, controller) {
 
       scope.compareWithCurrentState = function () {
-        // console.log(scope.currentState);
-        console.log($(el).attr('data-id'));
-        if (scope.currentState === attr['data-id']) {
+        console.log((scope.currentState === $(el).attr('data-id')));
+        if (scope.currentState === $(el).attr('data-id')) {
           // console.log('DATA ID: ');
           // console.log(attr('data-id'));
           el.hide();
