@@ -1,4 +1,4 @@
-app.directive('showHide', function () {
+app.directive('showHide', ['$', function ($) {
 
   return {
     restrict: 'A',
@@ -6,13 +6,16 @@ app.directive('showHide', function () {
       currentState: '='
     },
     link: function _showHideLink (scope, el, attr, controller) {
-      var slideTag = el.parent();
-
-      console.log(scope.currentState);
 
       scope.compareWithCurrentState = function () {
-
+        if (scope.currentState === attr['data-id']) {
+          // console.log('DATA ID: ');
+          // console.log(attr('data-id'));
+          $(el).hide();
+        }
       };
+
+      scope.compareWithCurrentState();
 
       scope.flag = true;
       scope.toggle = function () {
@@ -21,4 +24,4 @@ app.directive('showHide', function () {
     }
   };
 
-});
+}]);

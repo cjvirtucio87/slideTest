@@ -15,7 +15,7 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
 
   $scope.states = [0];
 
-  $scope.currentState = 0;
+  $scope.currentState = 1;
   $scope.createSlide = function($event){
     var slideTag = $($event.currentTarget).first().parent();
     $scope.states.push(slideTag.attr('data-id'));
