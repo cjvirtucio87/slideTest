@@ -48,4 +48,11 @@ app.controller('pageWatchCtrl',
     NodeService.saveNodeForm($scope.nodeForm);
   };
 
+  // Using the node ids in the service to get the nodes from the DOM
+  $scope.getNodes = function () {
+    console.log(_.map(NodeService.getNodeIds(), function(id) {
+      return $(["[data-id=" + id + "]"]).attr('');
+    }));
+  };
+
 }]);

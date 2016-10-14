@@ -39,6 +39,7 @@
     <script src="vendor/jquery/jquery.min.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.js'></script>
 
 </head>
 
@@ -112,6 +113,7 @@
     </header>
 
     <section show-hide current-state='states[count]' id="download" class="download bg-primary text-center" data-slide="home">
+      <button ng-click='getNodes()'>Testing get nodes</button>
       <!-- CREATE SLIDE -->
       <button ng-click='createSlide($event)' class='create-slide'>Make New Slide</button>
       <!-- CHECKBOX -->

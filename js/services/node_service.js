@@ -5,8 +5,8 @@ app.factory('NodeService', function () {
   var _data = {};
 
   // Adding changes.
-  function _addChange (node, change) {
-
+  function _addChange (nodeId, change) {
+    _data[nodeId].push(change);
   }
 
   srv.saveNodeForm = function (formData) {
@@ -18,13 +18,17 @@ app.factory('NodeService', function () {
     });
   };
 
+  srv.getNodeIds = function () {
+    return Object.keys(_data);
+  };
+
   return srv;
 
 });
 
 // we need to store the nodes
 // we need to store changes to the nodes
-// changes will be a
+// changes will be an array
 
 // SLIDE ID
 // - array of changes
