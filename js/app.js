@@ -13,7 +13,7 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
   }
   // compare element's id with currentstate; if match { show }
 
-  $scope.states = [0];
+  $scope.states = ['home'];
 
   $scope.count = 0;
 
