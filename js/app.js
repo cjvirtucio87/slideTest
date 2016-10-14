@@ -31,7 +31,7 @@ app.controller('pageWatchCtrl', ['$scope', '$', function($scope, $){
 
   $scope.nextState = function () {
     $scope.count = ($scope.count + 1) % $scope.states.length;
-    $scope.$broadcast('states.nextState', $scope.states[$scope.count]);
+    $scope.$broadcast('states.nextState', $scope.states, $scope.count);
   };
 
 }]);

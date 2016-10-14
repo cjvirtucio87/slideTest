@@ -22,3 +22,9 @@ if (scope.currentState === 'home'){
   }
 
 }
+
+
+
+// Validation for make new slide/next slide
+IF theres less than two sections + headers,
+  THEN remove the buttons on that slide

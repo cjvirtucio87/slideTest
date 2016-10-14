@@ -3,58 +3,37 @@ app.directive('showHide', ['$', function ($) {
   return {
     restrict: 'A',
     scope: {
-      currentState: '='
+      currentState: '=',
     },
-    link: function _showHideLink (scope, el, attr, controller) {
+    link: function (scope, el, attr, controller) {
+      scope.checkLessThanTwo = function (states, count) {
+        // Check if there are less than two slides left.
+        // Then hide/show button.
+        var slides = $("[data-slide='" + states[count] + "']");
+        // console.log(slides);
+        if (slides.length < 2) {
+          // console.log(slides.length);
+          // console.log(slides.children('button.next-state-btn'));
+          console.log(slides.find('button.create-slide'));
+          slides.find('button.create-slide').first().hide();
+        } else {
+          slides.find('button.create-slide').first().show();
+        }
+      };
 
-      // var section = $(el)
-      // if (scope.currentState === 'home'){
-      //   if (section.attr('data-stated')) {
-      //     section.hide();
-      //   } else {
-      //     section.show();
-      //   }
-      // } else {
-      //   if (scope.currentState !== $(el).attr['data-id']){
-      //     section.hide();
-      //   } else {
-      //     section.show();
-      //   }
-      //
-      // }
-
-      scope.compareWithCurrentState = function () {
-        var section = $(el);
-        console.log($(el).attr('data-id'));
-        // if (scope.currentState === 'home') {
-        //   if (section.attr('data-stated')) {
-        //     section.hide();
-        //   } else {
-        //     section.show();
-        //   }
-        // } else {
-        //   if (scope.currentState !== $(el).attr('data-id')) {
-        //     $(el).hide();
-        //   } else {
-        //     $(el).show();
-        //   }
-        // }
+      scope.compareWithCurrentState = function (states, count) {
         var section = $(el);
         if(scope.currentState !== section.attr('data-slide')){
           section.hide();
         } else {
           section.show();
         }
+
+        scope.checkLessThanTwo(states, count);
       };
 
-      scope.flag = true;
-      scope.toggle = function () {
-        scope.flag = !scope.flag;
-      };
-
-      scope.$on('states.nextState', function(ev, arg) {
-        // console.log(arg);
-        scope.compareWithCurrentState();
+      scope.$on('states.nextState', function(ev, states, count) {
+        scope.compareWithCurrentState(states, count);
       });
     }
   };
