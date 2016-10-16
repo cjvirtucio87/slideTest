@@ -43,7 +43,7 @@
 
 </head>
 
-<body id="page-top" ng-controller="pageWatchCtrl">
+<body id="page-top" ng-controller="PageWatchCtrl as pageWatch">
   <!-- FORM FOR CHECKBOXES -->
   <form ng-submit='saveNodes()' class='form-group'>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -73,11 +73,12 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
+        <side-bar></side-bar>
     </nav>
 
     <button class='next-state-btn' ng-click='nextState()'>Next State</button>
 
-    <header ng-animate='animate' id='main-header' show-hide current-state='states[count]' data-slide="home">
+    <header edit-states='pageWatch.editStates' node-form='node' ng-animate='animate' id='main-header' show-hide current-state='states[count]' data-slide="home">
         <div class="container">
             <div class="row">
                 <div class="col-sm-7">
@@ -87,7 +88,10 @@
                             <!-- CREATE SLIDE -->
                             <button class='create-slide' ng-click='createSlide($event)'>Make New Slide</button>
                             <!-- CHECKBOX -->
-                            <to-checkbox node-form='nodeForm'></to-checkbox>
+                            <to-checkbox ng-show='editStates.section'></to-checkbox>
+
+                            <button ng-hide='editStates.section' class='edit-slide-btn'>edit</button>
+
                             <h1>New Age is an app landing page that will help you beautifully showcase your new mobile app, or anything else!</h1>
                             <a href="#download" class="btn btn-outline btn-xl page-scroll">Start Now for Free!</a>
                         </div>
@@ -112,12 +116,14 @@
         </div>
     </header>
 
-    <section show-hide current-state='states[count]' id="download" class="download bg-primary text-center" data-slide="home">
+    <section node-form='node'  show-hide current-state='states[count]' id="download" class="download bg-primary text-center" data-slide="home">
       <button ng-click='getNodes()'>Testing get nodes</button>
       <!-- CREATE SLIDE -->
       <button ng-click='createSlide($event)' class='create-slide'>Make New Slide</button>
       <!-- CHECKBOX -->
-      <to-checkbox node-form='nodeForm' ></to-checkbox>
+      <to-checkbox ng-show='editStates.section'></to-checkbox>
+
+      <button ng-hide='editStates.section' class='edit-slide-btn'>edit</button>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
@@ -132,11 +138,12 @@
         </div>
     </section>
 
-    <section show-hide current-state='states[count]' id="features" class="features" data-slide="home">
+    <section node-form='node' show-hide current-state='states[count]' id="features" class="features" data-slide="home">
       <!-- CREATE SLIDE -->
       <button ng-click='createSlide($event)' class='create-slide'>Make New Slide</button>
       <!-- CHECKBOX -->
-      <to-checkbox node-form='nodeForm' ></to-checkbox>
+      <to-checkbox ng-show='editStates.section'></to-checkbox>
+      <button ng-hide='editStates.section' class='edit-slide-btn'>edit</button>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -201,13 +208,14 @@
             </div>
     </section>
 
-    <section show-hide current-state='states[count]' class="cta" data-slide="home">
+    <section node-form='node' show-hide current-state='states[count]' class="cta" data-slide="home">
         <div class="cta-content">
             <div class="container">
                 <!-- CREATE SLIDE -->
                 <button ng-click='createSlide($event)' class='create-slide'>Make New Slide</button>
                 <!-- CHECKBOX -->
-                <to-checkbox node-form='nodeForm' ></to-checkbox>
+                <to-checkbox ng-show='editStates.section'></to-checkbox>
+                <button ng-hide='editStates.section' class='edit-slide-btn'>edit</button>
                 <h2>Stop waiting.<br>Start building.</h2>
                 <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
             </div>
@@ -215,9 +223,10 @@
         <div class="overlay"></div>
     </section>
 
-    <section show-hide current-state='states[count]' id="contact" class="contact bg-primary" data-slide="home">
+    <section node-form='node' show-hide current-state='states[count]' id="contact" class="contact bg-primary" data-slide="home">
       <!-- CHECKBOX -->
-      <to-checkbox node-form='nodeForm' ></to-checkbox>
+      <to-checkbox ng-show='editStates.section'></to-checkbox>
+      <button ng-hide='editStates.section' class='edit-slide-btn'>edit</button>
       <!-- CREATE SLIDE -->
       <button ng-click='createSlide($event)' class='create-slide'>Make New Slide</button>
         <div class="container">
@@ -238,7 +247,8 @@
 
     <footer>
       <!-- CHECKBOX -->
-      <to-checkbox node-form='nodeForm' ></to-checkbox>
+      <to-checkbox ng-show='editStates.section'></to-checkbox>
+      <button ng-hide='editStates.section' class='edit-slide-btn'>edit</button>
         <div class="container">
             <p>&copy; 2016 Start Bootstrap. All Rights Reserved.</p>
             <ul class="list-inline">
@@ -276,6 +286,11 @@
     <!-- Checkboxes. -->
     <script src="js/directives/to_checkbox/to_checkbox.js"></script>
     <script src="js/services/node_service.js"></script>
+
+    <!-- Sidebar -->
+    <script src="js/directives/edit_sections/edit_sections.js"></script>
+    <script src="js/directives/edit_textboxes/edit_textboxes.js"></script>
+    <script src="js/directives/side_bar/side_bar.js"></script>
 
 </body>
 

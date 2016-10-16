@@ -4,6 +4,7 @@ app.directive('showHide', ['$', function ($) {
     restrict: 'A',
     scope: {
       currentState: '=',
+      editStates: '='
     },
     link: function (scope, el, attr, controller) {
       scope.checkLessThanTwo = function (slide) {

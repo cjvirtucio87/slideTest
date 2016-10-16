@@ -1,5 +1,5 @@
-app.controller('pageWatchCtrl',
-['$scope', '$', 'NodeService', function($scope, $, NodeService){
+app.controller('PageWatchCtrl',
+['$scope', '$', 'NodeService', '$rootScope', function($scope, $, NodeService, $rootScope){
   var elements = $('body *');
 
   for (var i =1; i < ( 1 + elements.length ); i++){
@@ -8,9 +8,7 @@ app.controller('pageWatchCtrl',
   // compare element's id with currentstate; if match { show }
 
   $scope.states = ['home'];
-
   $scope.count = 0;
-
   $scope.nextState = function (slideTo) {
     if(slideTo){
       $scope.count = slideTo;
@@ -42,19 +40,32 @@ app.controller('pageWatchCtrl',
     $scope.$broadcast('states.nextState', $scope.states[$scope.count] );
   };
 
-  $scope.checkBoxState = true;
-  $scope.toggleCB = function () {
-    scope.checkBoxState = !scope.checkBoxState;
-  };
-
-  scope.saveNodes = function () {
-  };
-
   // Using the node ids in the service to get the nodes from the DOM
   $scope.getNodes = function () {
-    console.log((_.map(NodeService.getNodeIds(), function(id) {
+    _.map(NodeService.getNodeIds(), function(id) {
       return $("*[data-id='" + id + "']").first();
-    })));
+    });
   };
+
+  // Saving the nodes.
+  $scope.nodeForm = {};
+  $scope.saveNodes = function () {
+    NodeService.saveNodeForm($scope.nodeForm);
+  };
+
+  // Edit states of the different parts.
+  $scope.editStates = {
+    section: false,
+    textbox: false
+  };
+
+  $scope.test = function () {
+    console.log('this is firing');
+  };
+
+  // Listener for toggle events in the sidebar.
+  $rootScope.$on('sidebar.toggled', function (ev, editStates) {
+    angular.copy(editStates, $scope.editStates);
+  });
 
 }]);
