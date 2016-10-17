@@ -18,6 +18,9 @@ app.directive('editSections', function () {
         // The value is what you actually want to pass up to the parent.
         scope.onToggle({stateObj: stateObj});
       };
+      scope.getPopoverContent = function () {
+        return 'hello';
+      };
     }
   };
 });
