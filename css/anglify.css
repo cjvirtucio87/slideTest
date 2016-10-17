@@ -24,15 +24,19 @@ body {
 
 .sidebar {
    position: fixed;
-   width: 50px;
+   padding-left: 10px;
+   padding-top: 5px;
+   margin-left: 5px;
+   width: 75px;
    height: 400px;
    background: #000;
    z-index: 10000000;
    top: 20%;
+   border-radius: 15px;
 }
 
 i.click {
-  font-size: 3em;
+  font-size: 5em;
   cursor: pointer;
 }
 
